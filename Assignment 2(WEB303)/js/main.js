@@ -25,7 +25,6 @@ $(document).ready(function() {
     
     $("#content").fadeIn("slow");
     $("#content").load("prospect.html");
-   // $(‘#text’).load(‘ajax.html #text’);
     $("#content").hide();
     $("#content").slideToggle(1000);
   });
