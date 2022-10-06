@@ -32,11 +32,15 @@ $(document).ready(function() {
   $("#convert").on("click", function() {
     $("#content").fadeIn("slow");
     $("#content").load("convert.html");
+    $("#content").hide();
+    $("#content").slideToggle(1000);
     
   });
   $("#retain").on("click", function() {
     $("#content").fadeIn("slow");
     $("#content").load("retain.html");
+    $("#content").hide();
+    $("#content").slideToggle(1000);
     
   });
 
