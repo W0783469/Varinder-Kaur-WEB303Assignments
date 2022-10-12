@@ -7,7 +7,7 @@ let getJsonData = function() {
         let html = '',
             el = document.getElementById("team");
     
-            $.each(data, function (index, data) {
+            $.each(data, function (index, data) {   
             html += "<h2>" + data.name + "</h2>";
             html += "<h5>" + data.position + "</h5>";
             html += "<p><strong>Bio: </strong>" + data.bio + "</p>";
