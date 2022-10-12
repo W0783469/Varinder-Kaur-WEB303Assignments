@@ -2,14 +2,7 @@
 // Student Name: Varinder Kaur
 //Student ID: 0783469
 
-
-
-$(document).ready(function() {
-    getDataByAjax();
-    
-});
-
-    let getJsonData = function() {
+let getJsonData = function() {
     $.getJSON("team.json", function (data) {
         let html = '',
             el = document.getElementById("team");
@@ -22,6 +15,11 @@ $(document).ready(function() {
         el.innerHTML = html;
     });
 };
+
+$(document).ready(function() {
+    getDataByAjax();
+    
+});
 
 
     let getDataByAjax = function(){
