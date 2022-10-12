@@ -2,7 +2,7 @@
 // Student Name: Varinder Kaur
 //Student ID: 0783469
 
-/* jsonMethod(); */
+
 
 $(document).ready(function() {
     getDataByAjax();
