@@ -13,7 +13,7 @@ $(function () {
     let prevlong = localStorage.getItem("long");
     if (prevlat) {
         locationhere.innerHTML = 
-            "<h1>Welcome Back!</h1> You were last at: <br /> Latitude: " + prevlat + "<br /> Longitude: " + prevlong; 
+            "<h1>Welcome Back !</h1> You were last at: <br /> Latitude: " + prevlat + "<br /> Longitude: " + prevlong; 
     } else {
         locationhere.innerHTML = 
             "Welcome!"
