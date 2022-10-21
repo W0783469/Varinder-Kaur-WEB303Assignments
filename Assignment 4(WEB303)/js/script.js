@@ -48,7 +48,7 @@ $(function () {
             if((prevlat == currentlat) && (prevlong == currentlong)) {
                 p.append("You haven't moved since you last checked!")
             } else {
-                calcDistanceBetweenPoints();
+                CalcDistanceBetweenPoints();
             }
         }
 
