@@ -1,13 +1,56 @@
 /*
     Assignment #4
-    {Your name here}
+    {Varinder Kaur}
 */
 
 $(function () {
-    // your code here
+    
+    let locationhere = document.getElementById("locationhere");
+    let header = document.getElementsByTagName("header");
 
+    //Defining the syntax to look for previous location
+    let prevlat = localStorage.getItem("lat");
+    let prevlong = localStorage.getItem("long");
+    if (prevlat) {
+        locationhere.innerHTML = 
+            "<h1>Welcome Back!</h1> You were last at: <br /> Latitude: " + prevlat + "<br /> Longitude: " + prevlong; 
+    } else {
+        locationhere.innerHTML = 
+            "Welcome!"
+    }
 
+    // Using API geolocation
+    if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(newLocation, () => {
+            console.log("Location services not available.");
+        });
+    } else {
+        locationhere.innerHTML = "Geolocation isn't available here, sorry!"
+    }
 
+    function newLocation(position) { // calling the geolocation function
+        let currentlat = position.coords.latitude;
+        let currentlong = position.coords.longitude;
+
+        localStorage.setItem('lat', currentlat); //saving in local storage..
+        localStorage.setItem('long', currentlong);
+
+        let p = document.createElement('p');
+        locationhere.appendChild(p);
+
+        p.innerHTML = 
+        "<div id='newlocation'>Your current location is: <br /> Latitude: " + currentlat + "<br /> Longitude: " + currentlong + "</div>";
+
+        // using the syntax to know about the distance travelled either they moved or not
+        if(prevlat) {
+            if((prevlat == currentlat) && (prevlong == currentlong)) {
+                p.append("You haven't moved since you last checked!")
+            } else {
+                calcDistanceBetweenPoints();
+            }
+        }
+
+    }
 
 
     // DO NOT EDIT ANY CODE IN THIS FUNCTION DEFINTION
