@@ -4,6 +4,15 @@
 */
 
 $(function () {
+
+    // Using API geolocation
+    if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(newLocation, () => {
+            console.log("Location services not available.");
+        });
+    } else {
+        locationhere.innerHTML = "Geolocation isn't available here, sorry!"
+    }
     
     let locationhere = document.getElementById("locationhere");
     let header = document.getElementsByTagName("header");
@@ -19,14 +28,7 @@ $(function () {
             "Welcome!"
     }
 
-    // Using API geolocation
-    if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition(newLocation, () => {
-            console.log("Location services not available.");
-        });
-    } else {
-        locationhere.innerHTML = "Geolocation isn't available here, sorry!"
-    }
+    
 
     function newLocation(position) { // calling the geolocation function
         let currentlat = position.coords.latitude;
