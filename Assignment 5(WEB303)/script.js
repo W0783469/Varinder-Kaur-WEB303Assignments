@@ -35,7 +35,7 @@ $(document).ready(function () {
 
 let allitems = [
         {
-            id : '1',
+        id : '1',
         name : 'Laptop',
         description : 'Dell',
         version : 'i7' 
