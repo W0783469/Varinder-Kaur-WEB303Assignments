@@ -33,9 +33,7 @@ $(document).ready(function () {
     }
 };
 
-
-    
-   let allitems = [
+let allitems = [
         {
             id : '1',
         name : 'Laptop',
@@ -68,6 +66,7 @@ $(document).ready(function () {
       }
     ]
 
+    
     for(i = 0; i < allitems.length; i++){
         $('#content-item-list').append(
     '<div class ="content-item-wrapper"id= "content-item-' +allitems[i].id +'">'+
