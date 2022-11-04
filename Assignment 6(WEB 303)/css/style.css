@@ -94,7 +94,7 @@ section {
 .tab-list li {
 	width: calc((100% / 3));
 	padding: 1rem;
-	background-color: blueviolet;
+	background-color: rgb(200, 111, 200);
 	text-align: center;
 	border-bottom: 1px solid aquamarine;
 }
