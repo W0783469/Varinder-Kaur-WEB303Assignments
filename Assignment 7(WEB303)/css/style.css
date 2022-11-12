@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+    text-align:center;
+    background-color: beige;
+    color: green;
+}
+#london-wrapper, #windsor-wrapper{
+    display: none;
+    height: 500px;
+}
