@@ -1,6 +1,4 @@
-# Cong_Nha_Le_WEB303Assignments
-Assignment for WEB303-22F-002 Javascript 2 Fall 2022 - 002
+WEB 303 Assignments- Varinder Kaur
+Assignment 7: WEB303-section002-Fall2022
 
-# Student name: Cong Nha Le
-
-# Student ID: 0761950
+#Student Name: Varinder Kaur
