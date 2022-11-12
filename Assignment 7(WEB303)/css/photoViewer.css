@@ -15,18 +15,17 @@
   top: calc(50% - 50px);
   left: calc(50% - 40px);
 }
+#photo-viewer .thumbnail-anchor img {
+  width: 80px;
+  height: 45px;
+}
+#photo-viewer .thumbnail-anchor.active {
+  border-radius: 8px;
+}
 #photo-viewer .photo-box img {
   position: absolute;
   max-width: 100%;
   max-height: 100%;
   top: 50%;
   left: 50%;
-}
-#photo-viewer .thumbnail-anchor img {
-  width: 80px;
-  height: 45px;
-}
-#photo-viewer .thumbnail-anchor.active {
-  
-  border-radius: 8px;
 }
