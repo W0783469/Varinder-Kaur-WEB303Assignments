@@ -4,11 +4,9 @@ $(function () {
 		.show()
 		.on('click', '.photo-box', function (e) {
 			var $content = $(this).clone().find('img').css({marginLeft: 0,marginTop: 0,width: '100%',height: 'auto', border: 'none', padding: 0});
-			
-            e.preventDefault();
+			 e.preventDefault();
             modal.open({content:$content, width: 800, height: 450});
-           
-            modal.addHeading(); // Add a heading to the top of the modal with your gallery name
+           modal.addHeading(); // Add a heading to the top of the modal with your gallery name
 
 		});
 });
