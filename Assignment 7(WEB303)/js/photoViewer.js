@@ -1,72 +1,60 @@
-let request; //Latest image to be requested
-let $current; //Image currently being shown
+let request; //request for image
+let $current; //current image shown
 const cache = {};
-const $frame = $('.photo-box'); //Container for image
+const $frame = $('.photo-box'); 
 
 function crossfade($img) {
-	//Function to fade between images, pass new image as param
 	if ($current) {
-		//If there is currently an image showing
 
-		$current.stop().fadeOut('slow'); //Stop animation and fade it out
+		$current.stop().fadeOut('slow'); //to stop animation
 	}
 
-	$img.css({
-		//Set the CSS margins for the image
+	$img.css({ //applying css
 		marginLeft: -$img.width() / 2,
 		marginTop: -$img.height() / 2,
 	});
-	$img.stop().fadeTo('slow', 1); //Stop ani mation on new i mage & fade in
-	$current = $img; //New image becomes current image
+	$img.stop().fadeTo('slow', 1); 
+	$current = $img; //current image
 }
 
 $.fn.customPhotoViewer = function () {
 	$(document).on('click', '.thumbnail-anchor', function (e) {
-		//When a thumb is clicked on
-		var $img; //Create local variable called $img
-		var src = this.href; //Store path to image
+		var $img; //local variable
+		var src = this.href; 
 
-		request = src; //Store path again in request
+		request = src; 
 
-		e.preventDefault(); //Stop default link behavior
+		e.preventDefault(); 
         $(".photo-thumbnails>a.active").removeClass("active");
-		$(this).addClass('active'); //Add active to clicked thumb
+		$(this).addClass('active'); 
 
 		if (cache.hasOwnProperty(src)) {
-			//If cache contains this image
 
-			if (cache[src].isLoading === false) {
-				//And if isloading is false
-				crossfade(cache[src].$img); //Call crossfade() function
+			if (cache[src].isLoading === false) { //false is loading
+				crossfade(cache[src].$img); 
 			}
 		} else {
-			//Otherwise it is not in cache
-			$img = $('<img/>'); //Store empty <imgl> element in $img
+			$img = $('<img/>'); 
 
 			cache[src] = {
-				//Store this image in cache
-				$img: $img, //Add the path to the image
-				isLoading: true, //Set isloading property to true
+				$img: $img, 
+				isLoading: true, //true is loading property
 			};
-			//Next few lines will run when image has loaded but are prepared first
+		
 			$img.on('load', function () {
-				//When image has loaded
-				$img.hide(); //Hide it
-				//Remove is-loading class from frame & append new image to it
-				$frame.removeClass('is-loading').append($img); //
-				cache[src].isLoading = false; //Update isloading in cache
-				//If still most recently requested image then
+				$img.hide(); //to hide image
+				$frame.removeClass('is-loading').append($img); 
+				cache[src].isLoading = false; 
 				if (request === src) {
-					crossfade($(this)); //Call crossfade(} function
-				} //Solves asynchronous loading issue
+					crossfade($(this));
+				} 
 			});
-			$frame.addClass('is-loading'); //Add is-loading class to frame
+			$frame.addClass('is-loading'); 
 			$img.attr({
-				//Set attributes on <img> element
-				src: src, //Add src attribute to load image
-				alt: this.title || '', //Add title if one was given in link
+				src: src, //to load the image
+				alt: this.title || '', 
 			});
-			$img.css({ padding: 10, border: '1px solid blue' }); // Style for image
+			$img.css({ padding: 10, border: '1px solid blue' }); // apply css for image
 		}
 		return this;
 	});
